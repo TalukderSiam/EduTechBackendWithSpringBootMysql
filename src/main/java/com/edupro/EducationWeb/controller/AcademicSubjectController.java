@@ -39,7 +39,7 @@ public class AcademicSubjectController {
                 "AcademicSubject",
                 List.of());
 
-     System.out.println("siam");
+     
         return ResponseEntity.ok(response);
     }
 
