@@ -17,13 +17,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class CourseIndex {
-
+public class CourseDetail {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String subjectName;
-    
-    @ElementCollection
-    private List<String> indexList;
+    private String topicName;
+    private String topicAnswer;
+    private String topicVideoLink;
 }

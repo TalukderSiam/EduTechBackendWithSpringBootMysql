@@ -3,6 +3,7 @@ package com.edupro.EducationWeb.controller;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.edupro.EducationWeb.entity.AcademicSubject;
+import com.edupro.EducationWeb.entity.CourseDetail;
 import com.edupro.EducationWeb.entity.CourseIndex;
 import com.edupro.EducationWeb.entity.response.RootResponseModel;
 import com.edupro.EducationWeb.service.CourseService;
@@ -60,6 +61,37 @@ public class CourseController {
     return ResponseEntity.ok(response);
     }
     
+    @PostMapping("/coursedetail/post")
+    public ResponseEntity<RootResponseModel<?>> saveCourseDetail(@RequestBody CourseDetail   CourseDetail) {
+        courseService.saveCourseDetail(CourseDetail);
+
+        RootResponseModel<?> response = ResponseOfApi.makeRootResponseModelFormate(
+                true,
+                "CourseIndex_Post",
+                "Saved CourseDetail Successfully",
+                "CourseIndex",
+                List.of());
+
+     
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/coursedetail/getbyIndexName")
+    public ResponseEntity<RootResponseModel<?>> getbyIndexName(@RequestParam String SubjectName ,@RequestParam String TopicName) {
+
+        CourseDetail courseDetail= courseService.getbyIndexName(SubjectName ,TopicName);
+        RootResponseModel<?> response = ResponseOfApi.makeRootResponseModelFormate(
+            true,
+            "CourseIndex_Get",
+            "Get courseIndex  Successfully",
+            "CourseIndex",
+            List.of(courseDetail));
+
+ 
+    return ResponseEntity.ok(response);
+    }
+    
+
     
 
 
