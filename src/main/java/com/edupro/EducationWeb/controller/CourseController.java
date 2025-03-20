@@ -90,6 +90,24 @@ public class CourseController {
  
     return ResponseEntity.ok(response);
     }
+
+    @GetMapping("/coursedetail/getallbysubjectname")
+    public ResponseEntity<RootResponseModel<?>> getallbysubjectname(@RequestParam String SubjectName) {
+
+        List<CourseDetail> courseDetail= courseService.getallbysubjectname(SubjectName);
+        RootResponseModel<?> response = ResponseOfApi.makeRootResponseModelFormate(
+            true,
+            "CourseIndex_Get",
+            "Get courseIndex  Successfully",
+            "CourseIndex",
+            List.of(courseDetail));
+
+ 
+    return ResponseEntity.ok(response);
+    }
+
+
+
     
 
     

@@ -1,5 +1,6 @@
 package com.edupro.EducationWeb.service.ServiceImplemantation;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,5 +59,15 @@ public class CourseServiceImplementation implements CourseService {
          return new CourseDetail();
       }
 
+   }
+
+   @Override
+   public List<CourseDetail> getallbysubjectname(String subjectName) {
+     try {
+      List<CourseDetail> courseDetails=courseDetailRepository.findAllBySubjectName(subjectName);
+      return courseDetails;
+     } catch (Exception e) {
+      return List.of();
+     }
    }
 }
