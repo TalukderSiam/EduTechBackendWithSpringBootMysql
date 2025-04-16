@@ -9,5 +9,7 @@ public interface AcademicSubjectService {
     void save(AcademicSubject academicSubject);
 
     List<AcademicSubject> getall();
+
+    List<AcademicSubject> getBySubjectName(String subjectName);
     
 }

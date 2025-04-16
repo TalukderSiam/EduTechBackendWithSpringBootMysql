@@ -58,6 +58,27 @@ public class AcademicSubjectController {
  
     return ResponseEntity.ok(response);
     }
+
+
+
+    @GetMapping("getbysubjectname")
+    public ResponseEntity<RootResponseModel<?>> getBySubjectName(@RequestParam String SubjectName) {
+
+       List<AcademicSubject>academicSubjectList= academicSubjectService.getBySubjectName(SubjectName);
+        RootResponseModel<?> response = ResponseOfApi.makeRootResponseModelFormate(
+            true,
+            "AcademicSubject_Get",
+            "Get AcademicSubject List Successfully",
+            "AcademicSubjectList",
+            academicSubjectList);
+
+ 
+    return ResponseEntity.ok(response);
+    }
+
+
+
+
     
     
 }

@@ -20,4 +20,7 @@ public class AcademicSubject {
     private int id;
     private String imageLink;
     private String subjectName;
+    private String authorName;
+    private Boolean isStudent;
+    private Boolean isTeacher;
 }
