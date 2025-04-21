@@ -1,5 +1,9 @@
 package com.edupro.EducationWeb.entity;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,19 +13,19 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class AcademicSubject {
-    
+@Entity
+public class CTSubject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String imageLink;
     private String subjectName;
-    private String authorName;
-    private Boolean isStudent;
-    private Boolean isTeacher;
+    private LocalDateTime creationDate;
+    private String remarks;
+    private String status;
+    
+
 }
