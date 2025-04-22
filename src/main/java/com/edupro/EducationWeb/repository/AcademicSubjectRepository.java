@@ -1,7 +1,7 @@
 package com.edupro.EducationWeb.repository;
 
 import com.edupro.EducationWeb.entity.AcademicSubject;
-import com.edupro.EducationWeb.entity.model.User;
+import com.edupro.EducationWeb.entity.User;
 
 import java.util.List;
 

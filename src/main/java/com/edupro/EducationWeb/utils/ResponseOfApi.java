@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import com.edupro.EducationWeb.entity.response.RootResponseModel;
+import com.edupro.EducationWeb.dto.response.RootResponseModel;
 
 
 

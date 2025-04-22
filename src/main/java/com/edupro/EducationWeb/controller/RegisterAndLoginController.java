@@ -2,9 +2,9 @@ package com.edupro.EducationWeb.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.edupro.EducationWeb.entity.model.User;
-import com.edupro.EducationWeb.entity.request.LoginModel;
-import com.edupro.EducationWeb.entity.request.Response;
+import com.edupro.EducationWeb.dto.request.LoginModel;
+import com.edupro.EducationWeb.dto.request.Response;
+import com.edupro.EducationWeb.entity.User;
 import com.edupro.EducationWeb.service.UserService;
 import org.springframework.web.bind.annotation.*;
 

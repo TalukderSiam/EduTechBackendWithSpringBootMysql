@@ -1,4 +1,4 @@
-package com.edupro.EducationWeb.entity.response;
+package com.edupro.EducationWeb.dto.response;
 
 import java.util.List;
 

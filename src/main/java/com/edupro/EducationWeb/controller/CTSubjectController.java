@@ -1,11 +1,11 @@
 package com.edupro.EducationWeb.controller;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.edupro.EducationWeb.dto.response.RootResponseModel;
 import com.edupro.EducationWeb.entity.CTSubject;
 import com.edupro.EducationWeb.entity.CTSubject;
 
 import com.edupro.EducationWeb.entity.CTSubject;
-import com.edupro.EducationWeb.entity.response.RootResponseModel;
 import com.edupro.EducationWeb.service.CTSubjectService;
 import com.edupro.EducationWeb.utils.ResponseOfApi;
 

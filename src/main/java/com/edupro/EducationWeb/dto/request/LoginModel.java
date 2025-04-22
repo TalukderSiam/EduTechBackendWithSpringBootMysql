@@ -1,4 +1,4 @@
-package com.edupro.EducationWeb.entity.request;
+package com.edupro.EducationWeb.dto.request;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

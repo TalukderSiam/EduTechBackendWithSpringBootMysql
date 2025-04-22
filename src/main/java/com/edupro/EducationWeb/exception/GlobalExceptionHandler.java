@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 // import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import com.edupro.EducationWeb.entity.response.RootResponseModel;
+import com.edupro.EducationWeb.dto.response.RootResponseModel;
 import com.edupro.EducationWeb.utils.ResponseOfApi;
 
 import lombok.extern.log4j.Log4j2;

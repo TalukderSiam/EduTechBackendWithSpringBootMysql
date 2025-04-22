@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.edupro.EducationWeb.entity.model.DeviceConfiguration;
-import com.edupro.EducationWeb.entity.request.Response;
-import com.edupro.EducationWeb.entity.response.ApiResponse;
+import com.edupro.EducationWeb.dto.request.Response;
+import com.edupro.EducationWeb.dto.response.ApiResponse;
+import com.edupro.EducationWeb.entity.DeviceConfiguration;
 import com.edupro.EducationWeb.repository.saveDeviceConfigurationRepository;
 @Service
 public class DeviceConfigurationService {

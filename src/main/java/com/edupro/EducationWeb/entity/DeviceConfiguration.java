@@ -1,4 +1,4 @@
-package com.edupro.EducationWeb.entity.model;
+package com.edupro.EducationWeb.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

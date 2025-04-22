@@ -35,7 +35,8 @@ public class CTSubjectServiceImplement implements CTSubjectService {
        try {
        return ctSubjectRepository.findAll();
        } catch (Exception e) {
-       return List.of();
+        throw new CustomRuntimeException(false, e.getMessage(), "CTSubject_Post",
+        "CTSubject", List.of());
        }
     }
     
