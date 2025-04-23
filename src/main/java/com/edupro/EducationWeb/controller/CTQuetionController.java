@@ -3,11 +3,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.edupro.EducationWeb.dto.response.RootResponseModel;
-import com.edupro.EducationWeb.entity.CTQuetion;
-import com.edupro.EducationWeb.entity.CTSubject;
-import com.edupro.EducationWeb.entity.CTSubject;
-
-import com.edupro.EducationWeb.entity.CTSubject;
+import com.edupro.EducationWeb.entity.CT.CTQuetion;
+import com.edupro.EducationWeb.entity.CT.CTSubject;
 import com.edupro.EducationWeb.service.CTQuetionService;
 import com.edupro.EducationWeb.service.CTSubjectService;
 import com.edupro.EducationWeb.service.CloudinaryService;
@@ -42,8 +39,8 @@ public class CTQuetionController {
     public ResponseEntity<RootResponseModel<?>> uploadCTQuestion(
             @RequestParam("ctquestionFile") MultipartFile file,
             @RequestParam("courseTakenBy") String courseTakenBy,
-            @RequestParam("semester") int semester,
-            @RequestParam("year") int year,
+            @RequestParam("semester") String semester,
+            @RequestParam("year") String year,
             @RequestParam("subjectName") String subjectName
     ) {
         
@@ -63,6 +60,24 @@ public class CTQuetionController {
 
          
     }
+
+
+    @GetMapping("getbysubjectname")
+    public ResponseEntity<RootResponseModel<?>> getBySubjectName(@RequestParam String SubjectName) {
+
+       List<CTQuetion>CTQuetionList= cTQuetionService.getBySubjectName(SubjectName);
+        RootResponseModel<?> response = ResponseOfApi.makeRootResponseModelFormate(
+            true,
+            "CTQuetion_Get",
+            "Get CTQuetion List Successfully",
+            "CTQuetionList",
+            CTQuetionList);
+
+ 
+    return ResponseEntity.ok(response);
+    }
+
+
 }
     
 

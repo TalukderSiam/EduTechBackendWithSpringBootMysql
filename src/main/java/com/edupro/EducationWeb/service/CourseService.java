@@ -2,8 +2,8 @@ package com.edupro.EducationWeb.service;
 
 import java.util.List;
 
-import com.edupro.EducationWeb.entity.CourseDetail;
-import com.edupro.EducationWeb.entity.CourseIndex;
+import com.edupro.EducationWeb.entity.Course.CourseDetail;
+import com.edupro.EducationWeb.entity.Course.CourseIndex;
 
 public interface CourseService {
 

@@ -1,4 +1,4 @@
-package com.edupro.EducationWeb.entity;
+package com.edupro.EducationWeb.entity.Course;
 
 import java.util.List;
 
@@ -17,13 +17,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class CourseDetail {
-    
+public class CourseIndex {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String subjectName;
-    private String topicName;
-    private String topicAnswer;
-    private String topicVideoLink;
+    
+    @ElementCollection
+    private List<String> indexList;
 }

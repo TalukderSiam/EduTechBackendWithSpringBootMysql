@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.edupro.EducationWeb.entity.CTQuetion;
+import com.edupro.EducationWeb.entity.CT.CTQuetion;
 import com.edupro.EducationWeb.exception.CustomRuntimeException;
 import com.edupro.EducationWeb.repository.CTQuetionRepository;
 import com.edupro.EducationWeb.service.CTQuetionService;
@@ -20,7 +20,7 @@ public class CTQuetionServiceImplementation implements CTQuetionService {
     private CTQuetionRepository ctQuetionRepository;
 
     @Override
-    public CTQuetion save(String fileUrl, String courseTakenBy, int semester, int year,String subjectName) {
+    public CTQuetion save(String fileUrl, String courseTakenBy, String semester, String year,String subjectName) {
        try {
 
         CTQuetion ctQuetion = CTQuetion.builder()
@@ -39,6 +39,19 @@ public class CTQuetionServiceImplementation implements CTQuetionService {
        throw new CustomRuntimeException(false, e.getMessage(), "CTQuetion_Post",
         "CTQuetion", List.of());
        }
+    }
+
+    @Override
+    public List<CTQuetion> getBySubjectName(String subjectName) {
+        try {
+            
+          return ctQuetionRepository.findBySubjectNameStartingWithIgnoreCase(subjectName);
+            
+           } catch (Exception e) {
+            
+                  throw new CustomRuntimeException(false, e.getMessage(), "CTQuetion_Get",
+                          "CTQuetion", List.of());
+           }
     }
 
 

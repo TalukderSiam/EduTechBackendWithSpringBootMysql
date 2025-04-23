@@ -4,8 +4,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.edupro.EducationWeb.dto.response.RootResponseModel;
 import com.edupro.EducationWeb.entity.AcademicSubject;
-import com.edupro.EducationWeb.entity.CourseDetail;
-import com.edupro.EducationWeb.entity.CourseIndex;
+import com.edupro.EducationWeb.entity.Course.CourseDetail;
+import com.edupro.EducationWeb.entity.Course.CourseIndex;
 import com.edupro.EducationWeb.service.CourseService;
 import com.edupro.EducationWeb.utils.ResponseOfApi;
 

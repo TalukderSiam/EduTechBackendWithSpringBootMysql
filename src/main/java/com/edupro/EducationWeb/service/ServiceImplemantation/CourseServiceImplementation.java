@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.edupro.EducationWeb.entity.CourseDetail;
-import com.edupro.EducationWeb.entity.CourseIndex;
+import com.edupro.EducationWeb.entity.Course.CourseDetail;
+import com.edupro.EducationWeb.entity.Course.CourseIndex;
 import com.edupro.EducationWeb.repository.CourseDetailRepository;
 import com.edupro.EducationWeb.repository.CourseIndexRepository;
 import com.edupro.EducationWeb.service.CourseService;

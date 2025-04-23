@@ -1,4 +1,4 @@
-package com.edupro.EducationWeb.entity;
+package com.edupro.EducationWeb.entity.CT;
 
 
 import java.time.LocalDate;
@@ -31,7 +31,7 @@ public class CTQuetion {
     private LocalDate updatedDate;
     private String ctquestionFileUrl;
     private String courseTakenBy;
-    private int semester;
-    private int year;
+    private String semester;
+    private String year;
     
 }

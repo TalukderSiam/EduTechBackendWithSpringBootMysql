@@ -1,4 +1,4 @@
-package com.edupro.EducationWeb.entity;
+package com.edupro.EducationWeb.entity.LAB;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class CTSubject {
+public class LABSubject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

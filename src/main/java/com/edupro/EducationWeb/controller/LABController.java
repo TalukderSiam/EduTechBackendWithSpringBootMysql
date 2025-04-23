@@ -2,8 +2,9 @@ package com.edupro.EducationWeb.controller;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.edupro.EducationWeb.dto.response.RootResponseModel;
-import com.edupro.EducationWeb.entity.CT.CTSubject;
-import com.edupro.EducationWeb.service.CTSubjectService;
+
+import com.edupro.EducationWeb.entity.LAB.LABSubject;
+import com.edupro.EducationWeb.service.LabService;
 import com.edupro.EducationWeb.utils.ResponseOfApi;
 
 import java.util.List;
@@ -21,24 +22,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
-@RequestMapping("/api/ctSubject")
+@RequestMapping("/api/lab")
 @CrossOrigin(origins = "*")
-public class CTSubjectController {
+public class LABController {
 
     @Autowired
-    private CTSubjectService CTSubjectService;
+    private LabService LabService;
 
-    @PostMapping("/post")
-    public ResponseEntity<RootResponseModel<?>> save(@RequestBody CTSubject   CTSubject) {
+    @PostMapping("labsubject/post")
+    public ResponseEntity<RootResponseModel<?>> save(@RequestBody LABSubject   LabSubject) {
 
-       CTSubject ctSubject= CTSubjectService.save(CTSubject);
+        LABSubject savedLabSubject= LabService.save(LabSubject);
 
         RootResponseModel<?> response = ResponseOfApi.makeRootResponseModelFormate(
                 true,
-                "CTSubject_Post",
-                "Saved CTSubject Successfully",
-                "CTSubject",
-                List.of(ctSubject));
+                "LabSubject_Post",
+                "Saved LabSubject Successfully",
+                "LABSubject",
+                List.of(savedLabSubject));
 
      
         return ResponseEntity.ok(response);
@@ -51,16 +52,16 @@ public class CTSubjectController {
 
 
 
-    @GetMapping("getall")
-    public ResponseEntity<RootResponseModel<?>> getAllCTSubject() {
+    @GetMapping("labsubject/getall")
+    public ResponseEntity<RootResponseModel<?>> getAllLabSubject() {
 
-       List<CTSubject>CTSubjectList= CTSubjectService.getall();
+       List<LABSubject>LabSubjectList= LabService.getall();
         RootResponseModel<?> response = ResponseOfApi.makeRootResponseModelFormate(
             true,
-            "CTSubject_Get",
-            "Get CTSubject List Successfully",
-            "CTSubjectList",
-            CTSubjectList);
+            "LabSubject_Get",
+            "Get LabSubject List Successfully",
+            "LabSubjectList",
+            LabSubjectList);
 
  
     return ResponseEntity.ok(response);

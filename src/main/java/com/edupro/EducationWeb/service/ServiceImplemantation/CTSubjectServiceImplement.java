@@ -6,8 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.edupro.EducationWeb.entity.CTSubject;
-import com.edupro.EducationWeb.entity.CTSubject;
+import com.edupro.EducationWeb.entity.CT.CTSubject;
 import com.edupro.EducationWeb.exception.CustomRuntimeException;
 import com.edupro.EducationWeb.repository.CTSubjectRepository;
 import com.edupro.EducationWeb.service.CTSubjectService;
