@@ -2,7 +2,7 @@ package com.edupro.EducationWeb.controller;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.edupro.EducationWeb.dto.response.RootResponseModel;
-
+import com.edupro.EducationWeb.entity.LAB.LABDayDetails;
 import com.edupro.EducationWeb.entity.LAB.LABSubject;
 import com.edupro.EducationWeb.service.LabService;
 import com.edupro.EducationWeb.utils.ResponseOfApi;
@@ -66,5 +66,40 @@ public class LABController {
  
     return ResponseEntity.ok(response);
     }
+
+    @PostMapping("labdaydetails/post")
+    public ResponseEntity<RootResponseModel<?>> save(@RequestBody LABDayDetails   LABDayDetails) {
+
+        LABDayDetails savedLABDayDetails= LabService.save(LABDayDetails);
+
+        RootResponseModel<?> response = ResponseOfApi.makeRootResponseModelFormate(
+                true,
+                "LabSubject_Post",
+                "Saved LabSubject Successfully",
+                "LABSubject",
+                List.of(savedLABDayDetails));
+
+     
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("labdaydetails/getbysubjectnameandnumberofday")
+    public ResponseEntity<RootResponseModel<?>> getbysubjectnameandnumberofday(@RequestParam String SubjectName , @RequestParam String NumberOfDay) {
+
+        List<LABDayDetails> savedLABDayDetails= LabService.getbysubjectnameandnumberofday(SubjectName,NumberOfDay);
+
+        RootResponseModel<?> response = ResponseOfApi.makeRootResponseModelFormate(
+                true,
+                "LabSubject_Post",
+                "Saved LabSubject Successfully",
+                "LABSubject",
+                List.of(savedLABDayDetails));
+
+     
+        return ResponseEntity.ok(response);
+    }
+
+
+
     
 }

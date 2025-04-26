@@ -6,8 +6,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.edupro.EducationWeb.entity.LAB.LABDayDetails;
 import com.edupro.EducationWeb.entity.LAB.LABSubject;
 import com.edupro.EducationWeb.exception.CustomRuntimeException;
+import com.edupro.EducationWeb.repository.LAB.LABDayDetailsRepository;
 import com.edupro.EducationWeb.repository.LAB.LABSubjectRepository;
 import com.edupro.EducationWeb.service.LabService;
 
@@ -16,6 +18,10 @@ public class LabServiceImplementation  implements LabService{
 
     @Autowired
     private LABSubjectRepository labSubjectRepository;
+
+    @Autowired
+    private LABDayDetailsRepository labDayDetailsRepository;
+
 
 
     @Override
@@ -37,6 +43,29 @@ public class LabServiceImplementation  implements LabService{
              throw new CustomRuntimeException(false, e.getMessage(), "labSubject_Post",
              "labSubject", List.of());
             }
+    }
+
+    @Override
+    public LABDayDetails save(LABDayDetails lABDayDetails) {
+        try {
+            lABDayDetails.setCreationDate(LocalDateTime.now());
+            return labDayDetailsRepository.save(lABDayDetails);
+        } catch (Exception e) {
+           throw new CustomRuntimeException(false, e.getMessage(), "LABDayDetails_Post",
+                    "LABDayDetails", List.of());
+        }
+        
+    }
+
+    @Override
+    public List<LABDayDetails> getbysubjectnameandnumberofday(String subjectName, String numberOfDay) {
+        try {
+            
+            return labDayDetailsRepository.findBySubjectNameAndNumberOfDay(subjectName ,numberOfDay);
+        } catch (Exception e) {
+           throw new CustomRuntimeException(false, e.getMessage(), "LABDayDetails_Post",
+                    "LABDayDetails", List.of());
+        }
     }
     
 }
