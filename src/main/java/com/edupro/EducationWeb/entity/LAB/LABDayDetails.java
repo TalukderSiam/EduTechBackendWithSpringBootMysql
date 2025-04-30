@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.persistence.ElementCollection;
@@ -33,12 +34,11 @@ public class LABDayDetails {
     private String updatedDate;
     private String status;
     private String indexName;
-    private List<String> detailsList;
     private String subjectName;
     private String numberOfDay;
-    private String imageUrl;
-    private String videoUrl;
-
+    private String labFileUrl;
+    private String labTakenBy;
+    private String fileUploadBy;
 
     
 }

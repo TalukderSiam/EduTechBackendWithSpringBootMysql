@@ -1,9 +1,12 @@
 package com.edupro.EducationWeb.controller;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.edupro.EducationWeb.dto.response.RootResponseModel;
+import com.edupro.EducationWeb.entity.CT.CTQuetion;
 import com.edupro.EducationWeb.entity.LAB.LABDayDetails;
 import com.edupro.EducationWeb.entity.LAB.LABSubject;
+import com.edupro.EducationWeb.service.CloudinaryService;
 import com.edupro.EducationWeb.service.LabService;
 import com.edupro.EducationWeb.utils.ResponseOfApi;
 
@@ -28,6 +31,11 @@ public class LABController {
 
     @Autowired
     private LabService LabService;
+
+    @Autowired
+    private CloudinaryService cloudinaryService;
+
+    
 
     @PostMapping("labsubject/post")
     public ResponseEntity<RootResponseModel<?>> save(@RequestBody LABSubject   LabSubject) {
@@ -68,9 +76,19 @@ public class LABController {
     }
 
     @PostMapping("labdaydetails/post")
-    public ResponseEntity<RootResponseModel<?>> save(@RequestBody LABDayDetails   LABDayDetails) {
+    public ResponseEntity<RootResponseModel<?>> save( 
+    @RequestParam("LabQuestionFile") MultipartFile file,
+    @RequestParam("LabTakenBy") String labTakenBy,
+    @RequestParam("FileUploadBy") String fileUploadBy,
+    @RequestParam("NumberOfDay") String numberOfDay,
+    @RequestParam("SubjectName") String subjectName,
+    @RequestParam("IndexName") String indexName) {
 
-        LABDayDetails savedLABDayDetails= LabService.save(LABDayDetails);
+        String fileUrl = cloudinaryService.uploadFile(file);
+
+          //  CTQuetion question =cTQuetionService.save(fileUrl,courseTakenBy,semester,year,subjectName);
+
+        LABDayDetails savedLABDayDetails= LabService.save(fileUrl,labTakenBy,fileUploadBy,numberOfDay,subjectName,indexName);
 
         RootResponseModel<?> response = ResponseOfApi.makeRootResponseModelFormate(
                 true,

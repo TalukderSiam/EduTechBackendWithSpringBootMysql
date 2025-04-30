@@ -11,8 +11,11 @@ public interface LabService {
 
     List<LABSubject> getall();
 
-    LABDayDetails save(LABDayDetails lABDayDetails);
+    // LABDayDetails save(LABDayDetails lABDayDetails);
 
     List<LABDayDetails> getbysubjectnameandnumberofday(String subjectName, String numberOfDay);
+
+    LABDayDetails save(String fileUrl, String labTakenBy, String fileUploadBy, String numberOfDay, String subjectName,
+            String indexName);
 
 }

@@ -21,16 +21,17 @@ public class CloudinaryServiceImplementation implements CloudinaryService {
     @Override
     public String uploadFile(MultipartFile file) {
         try {
-            // Get content type (e.g., application/pdf or image/jpeg)
             String contentType = file.getContentType();
     
-            // Decide resource_type
-            String resourceType = contentType != null && contentType.equals("application/pdf")
-                ? "raw"
-                : "auto";
+            // Decide resource_type (images, raw files, videos, etc.)
+            String resourceType = (contentType != null && contentType.equals("application/pdf")) ? "raw" : "auto";
     
             Map<String, Object> options = ObjectUtils.asMap(
-                "resource_type", resourceType
+                "resource_type", resourceType,
+                "use_filename", true,                        // keep original name
+                "unique_filename", false,                    // prevent renaming
+                "filename", file.getOriginalFilename(),      // original name
+                "chunk_size", 6000000                        // ~6MB chunk size for large files
             );
     
             Map uploadResult = cloudinary.uploader().upload(file.getBytes(), options);
