@@ -21,17 +21,26 @@ public class CloudinaryServiceImplementation implements CloudinaryService {
     @Override
     public String uploadFile(MultipartFile file) {
         try {
+            // Get content type (e.g., application/pdf or image/jpeg)
+            String contentType = file.getContentType();
+    
+            // Decide resource_type
+            String resourceType = contentType != null && contentType.equals("application/pdf")
+                ? "raw"
+                : "auto";
+    
             Map<String, Object> options = ObjectUtils.asMap(
-                    "resource_type", "auto" // auto detects image, video, or raw
+                "resource_type", resourceType
             );
-
+    
             Map uploadResult = cloudinary.uploader().upload(file.getBytes(), options);
-            return uploadResult.get("url").toString(); // Public URL
-
+            return uploadResult.get("url").toString();
+    
         } catch (Exception e) {
-           throw new CustomRuntimeException(false, e.getMessage(), "CTSubject_Post",
+            throw new CustomRuntimeException(false, e.getMessage(), "CTSubject_Post",
                     "CTSubject", List.of());
         }
     }
+    
 
 }
